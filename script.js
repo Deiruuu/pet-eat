@@ -41,18 +41,20 @@ function getPetIdFromPath() {
 }
 
 function renderPet(pet) {
-  return \`
-    <img src="\${pet.image}" alt="\${pet.name}">
-    <h2>\${pet.name}</h2>
-    <div class="pet-info">\${pet.type} • \${pet.breed}</div>
-    <div class="pet-info">\${pet.sex} • Age: \${pet.age} (\${pet.birthdate})</div>
-    <div class="medical">🧾 \${pet.medicalInfo}</div>
-    <div class="clinic">🏥 \${pet.clinic}</div>
-  \`;
+  return `
+    <div class="card">
+      <img src="${pet.image}" alt="${pet.name}">
+      <h2>${pet.name}</h2>
+      <div class="pet-info">${pet.type} • ${pet.breed}</div>
+      <div class="pet-info">${pet.sex} • Age: ${pet.age} (${pet.birthdate})</div>
+      <div class="medical">🧾 ${pet.medicalInfo}</div>
+      <div class="clinic">🏥 ${pet.clinic}</div>
+    </div>
+  `;
 }
 
 function renderNotFound() {
-  return '<div class="not-found">❌ Pet not found.<br>Check the NFC tag or contact the clinic.</div>';
+  return `<div class="not-found">❌ Pet not found.<br>Check the NFC tag or contact the clinic.</div>`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
