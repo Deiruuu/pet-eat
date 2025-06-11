@@ -1,68 +1,58 @@
-// Mock pet data
-const pets = {
-  'abc123': {
-    name: 'Buddy',
-    type: 'Dog',
-    age: 2,
-    birthdate: '2022-05-10',
-    breed: 'Labrador',
-    sex: 'Male',
-    image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=facearea&w=256&h=256',
-    medicalInfo: 'No known allergies',
-    clinic: 'Healthy Pets Center',
-  },
-  'def456': {
-    name: 'Mittens',
-    type: 'Cat',
-    age: 3,
-    birthdate: '2021-03-15',
-    breed: 'Siamese',
-    sex: 'Female',
-    image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=facearea&w=256&h=256',
-    medicalInfo: 'Annual vaccination completed',
-    clinic: 'PawCare Clinic',
-  },
-  'ghi789': {
-    name: 'Rex',
-    type: 'Dog',
-    age: 5,
-    birthdate: '2019-02-20',
-    breed: 'German Shepherd',
-    sex: 'Male',
-    image: 'https://images.unsplash.com/photo-1518715308788-3005759c61d4?auto=format&fit=facearea&w=256&h=256',
-    medicalInfo: 'Healthy overall condition',
-    clinic: 'City Vet Clinic',
-  }
-};
-
-function getPetIdFromPath() {
-  const match = window.location.pathname.match(/\/pet\/([\w-]+)/);
-  return match ? match[1] : null;
-}
-
-function renderPet(pet) {
-  return `
-    <div class="card">
-      <img src="${pet.image}" alt="${pet.name}">
-      <h2>${pet.name}</h2>
-      <div class="pet-info">${pet.type} • ${pet.breed}</div>
-      <div class="pet-info">${pet.sex} • Age: ${pet.age} (${pet.birthdate})</div>
-      <div class="medical">🧾 ${pet.medicalInfo}</div>
-      <div class="clinic">🏥 ${pet.clinic}</div>
-    </div>
-  `;
-}
-
-function renderNotFound() {
-  return `<div class="not-found">❌ Pet not found.<br>Check the NFC tag or contact the clinic.</div>`;
-}
-
+// script.js
 document.addEventListener('DOMContentLoaded', () => {
-  const petId = getPetIdFromPath();
-  const app = document.getElementById('app');
-  if (petId && pets[petId]) {
-    app.innerHTML = renderPet(pets[petId]);
-  } else {
-    app.innerHTML = renderNotFound();
-  }
+    const petInfoDiv = document.getElementById('pet-info');
+    const path = window.location.pathname; // Get the full path, e.g., /pet/abc123
+
+    // Mock data for pets
+    const mockPetData = {
+        'abc123': { name: 'Buddy', type: 'Dog', age: 3, breed: 'Golden Retriever' },
+        'xyz789': { name: 'Whiskers', type: 'Cat', age: 2, breed: 'Siamese' },
+        'pqr456': { name: 'Hoppy', type: 'Rabbit', age: 1, breed: 'Dutch' }
+    };
+
+    /**
+     * Extracts the pet ID from the current URL path.
+     * Assumes the ID is the segment immediately following '/pet/'.
+     * @param {string} currentPath - The full URL path (e.g., '/pet/abc123').
+     * @returns {string|null} The extracted pet ID, or null if not found.
+     */
+    const getPetIdFromPath = (currentPath) => {
+        const parts = currentPath.split('/');
+        // Find the index of 'pet' and get the next segment
+        const petIndex = parts.indexOf('pet');
+        if (petIndex > -1 && parts.length > petIndex + 1) {
+            return parts[petIndex + 1]; // This should be the ID like 'abc123'
+        }
+        return null; // No pet ID found
+    };
+
+    const petId = getPetIdFromPath(path);
+    console.log("Current path:", path);
+    console.log("Extracted Pet ID:", petId);
+
+    if (petId) {
+        const pet = mockPetData[petId];
+        if (pet) {
+            // Display pet details by updating the inner HTML of the petInfoDiv
+            petInfoDiv.innerHTML = `
+                <p class="mb-2"><strong class="font-semibold">ID:</strong> ${petId}</p>
+                <p class="mb-2"><strong class="font-semibold">Name:</strong> ${pet.name}</p>
+                <p class="mb-2"><strong class="font-semibold">Type:</strong> ${pet.type}</p>
+                <p class="mb-2"><strong class="font-semibold">Age:</strong> ${pet.age} years</p>
+                <p class="mb-2"><strong class="font-semibold">Breed:</strong> ${pet.breed}</p>
+            `;
+        } else {
+            // Pet not found in mock data, display an error message
+            petInfoDiv.innerHTML = `
+                <p class="text-center text-red-600 font-semibold">Pet with ID "${petId}" not found.</p>
+                <p class="text-center text-gray-500 mt-2">Please check the ID and try again.</p>
+            `;
+        }
+    } else {
+        // No pet ID found in the URL, or the path is not as expected, display instructions
+        petInfoDiv.innerHTML = `
+            <p class="text-center text-orange-500 font-semibold">No pet ID provided in the URL.</p>
+            <p class="text-center text-gray-500 mt-2">Example: /pet/abc123</p>
+        `;
+    }
 });
