@@ -1,1 +1,8 @@
-/pet/*    /index.html   200
+# Rule for SPA client-side routing (for pet details pages)
+/pet/* /index.html 200
+
+# Fallback for all other paths (ensures static assets are found, or route to index.html for other SPA routes)
+# This rule tells Netlify to try to find a file at the requested path.
+# If it can't find a file (e.g., for /script.js if script.js exists), it serves it directly.
+# If it can't find a file (e.g., for /some-other-spa-route), it serves index.html.
+/* /index.html 200
