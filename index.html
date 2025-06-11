@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetEat - Pet Details</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Details Fallback</title>
+    <!-- Link to Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div id="app"></div>
-  <script src="script.js"></script>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Pet Details</h1>
+        <div id="pet-info" class="text-gray-700">
+            <!-- Pet details will be loaded here by JavaScript -->
+            <p class="text-center text-gray-500">Loading pet details...</p>
+        </div>
+        <div class="mt-6 text-center">
+            <a href="/" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Go to Home</a>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript file at the end of body for better performance -->
+    <script src="script.js"></script>
 </body>
 </html>
