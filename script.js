@@ -48,26 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pet) {
             // If the pet ID exists in our mock data, display its details
             petInfoDiv.innerHTML = `
-                <p class="mb-2"><strong class="font-semibold">ID:</strong> ${petId}</p>
-                <p class="mb-2"><strong class="font-semibold">Name:</strong> ${pet.name}</p>
-                <p class="mb-2"><strong class="font-semibold">Type:</strong> ${pet.type}</p>
-                <p class="mb-2"><strong class="font-semibold">Age:</strong> ${pet.age} years</p>
-                <p class="mb-2"><strong class="font-semibold">Breed:</strong> ${pet.breed}</p>
-                <p class="mt-4 text-sm italic">${pet.description}</p>
+                <p><strong>ID:</strong> ${petId}</p>
+                <p><strong>Name:</strong> ${pet.name}</p>
+                <p><strong>Type:</strong> ${pet.type}</p>
+                <p><strong>Age:</strong> ${pet.age} years</p>
+                <p><strong>Breed:</strong> ${pet.breed}</p>
+                <p class="description">${pet.description}</p>
             `;
         } else {
             // If an ID was found in the URL but the pet is NOT in the mockPetData
             petInfoDiv.innerHTML = `
-                <p class="text-center text-red-600 font-semibold">Pet with ID "${petId}" not found.</p>
-                <p class="text-center text-gray-500 mt-2">Please check the ID and try again.</p>
-                <p class="text-center text-gray-500 mt-2">Available IDs: abc123, xyz789, pqr456</p>
+                <p class="error-message">Pet with ID "${petId}" not found.</p>
+                <p class="info-message">Please check the ID and try again.</p>
+                <p class="info-message">Available IDs: abc123, xyz789, pqr456</p>
             `;
         }
     } else {
         // If no specific pet ID was found in the URL (e.g., path is just '/pet/' or '/')
         petInfoDiv.innerHTML = `
-            <p class="text-center text-orange-500 font-semibold">No specific pet ID provided in the URL.</p>
-            <p class="text-center text-gray-500 mt-2">Try accessing: <a href="/pet/abc123" class="text-blue-500 hover:underline">/pet/abc123</a> or <a href="/pet/xyz789" class="text-blue-500 hover:underline">/pet/xyz789</a></p>
+            <p class="warning-message">No specific pet ID provided in the URL.</p>
+            <p class="info-message">Try accessing: <a href="/pet/abc123" class="link">/pet/abc123</a> or <a href="/pet/xyz789" class="link">/pet/xyz789</a></p>
         `;
     }
 });
