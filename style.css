@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7fa;
+  margin: 0;
+  padding: 0;
+}
+#app {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 24px;
+  text-align: center;
+}
+img {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  object-fit: cover;
+  border: 3px solid #6ec1e4;
+  margin-bottom: 16px;
+}
+h2 {
+  margin: 0 0 8px;
+}
+.pet-info, .medical, .clinic {
+  margin: 4px 0;
+  color: #555;
+}
+.not-found {
+  color: #e74c3c;
+  font-size: 1.2em;
+  margin-top: 32px;
+}
+.footer {
+  text-align: center;
+  margin-top: 32px;
+  color: #aaa;
+  font-size: 0.9em;
+}
