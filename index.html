@@ -4,23 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Details Fallback</title>
-    <!-- Link to Tailwind CSS CDN for utility classes -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to Google Fonts for 'Inter' -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Link to your custom CSS file for any additional styles -->
+    <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Pet Details</h1>
-        <div id="pet-info" class="text-gray-700">
+<body>
+    <div id="app-container">
+        <h1>Pet Details</h1>
+        <div id="pet-info">
             <!-- This content will be replaced by JavaScript once details are loaded -->
-            <p class="text-center text-gray-500">Loading pet details...</p>
+            <p class="loading-message">Loading pet details...</p>
         </div>
-        <div class="mt-6 text-center">
+        <div class="button-container">
             <!-- Button to go back to the home page -->
-            <a href="/" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Go to Home</a>
+            <a href="/" class="button">Go to Home</a>
         </div>
     </div>
 
