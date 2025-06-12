@@ -1,6 +1,0 @@
-# Custom headers configuration
-[[headers]]
-  for = "/script.js" # Apply these headers to requests for /script.js
-  [headers.values]
-    Content-Type = "application/javascript" # Force the Content-Type to be JavaScript
-    X-Content-Type-Options = "nosniff" # Recommended security header to prevent MIME sniffing
