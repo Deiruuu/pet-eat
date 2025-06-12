@@ -1,0 +1,101 @@
+/* style.css */
+
+/* Universal box-sizing for easier layout management */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Using the Inter font */
+    background-color: #f3f4f6; /* Light gray background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding: 16px; /* Padding around the container */
+}
+
+#app-container {
+    background-color: #ffffff; /* White background for the card */
+    padding: 32px; /* Padding inside the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-width: 448px; /* Max width for the card (approx. Tailwind's max-w-md) */
+    width: 100%; /* Full width up to max-width */
+    text-align: center; /* Center align text inside the container */
+}
+
+h1 {
+    font-size: 2rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 24px; /* mb-6 */
+    color: #1f2937; /* gray-800 */
+}
+
+#pet-info {
+    color: #374151; /* gray-700 */
+    text-align: left; /* Align pet details text to the left */
+    margin-bottom: 24px; /* Space before button container */
+}
+
+#pet-info p {
+    margin-bottom: 8px; /* mb-2 */
+}
+
+#pet-info p strong {
+    font-weight: 600; /* font-semibold */
+}
+
+/* Specific messages styling */
+.loading-message, .info-message {
+    text-align: center;
+    color: #6b7280; /* gray-500 */
+}
+
+.error-message {
+    text-align: center;
+    color: #dc2626; /* red-600 */
+    font-weight: 600; /* font-semibold */
+}
+
+.warning-message {
+    text-align: center;
+    color: #f97316; /* orange-500 */
+    font-weight: 600; /* font-semibold */
+}
+
+.description {
+    margin-top: 16px; /* mt-4 */
+    font-style: italic;
+    font-size: 0.875rem; /* text-sm */
+}
+
+.button-container {
+    margin-top: 24px; /* mt-6 */
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    background-color: #3b82f6; /* blue-500 */
+    color: #ffffff; /* text-white */
+    font-weight: 600; /* font-semibold */
+    padding: 8px 16px; /* py-2 px-4 */
+    border-radius: 6px; /* rounded-md */
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+}
+
+.button:hover {
+    background-color: #2563eb; /* blue-600 on hover */
+}
+
+.link {
+    color: #3b82f6; /* blue-500 */
+    text-decoration: underline;
+}
+
+.link:hover {
+    text-decoration: none;
+}
